@@ -2,7 +2,7 @@ import tkinter as tk
 from PIL import Image, ImageTk, ImageDraw
 from tkinter import messagebox
 import os
-#hello
+
 # Main class for the IdentiTech application
 class IdentiTechApp:
 
