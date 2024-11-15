@@ -2,8 +2,6 @@ import tkinter as tk
 from PIL import Image, ImageTk, ImageDraw
 from tkinter import messagebox
 import os
-#hello
-#hi
 
 # Main class for the IdentiTech application
 class IdentiTechApp:
@@ -39,8 +37,8 @@ class IdentiTechApp:
         self.animate_loader()
         self.root.bind("<Configure>", self.on_resize)
 
-# Set the window size to 90% of the screen size
-    def set_window_size(self, width_percentage=0.8, height_percentage=0.):
+# Set the window size to 80% of the screen size
+    def set_window_size(self, width_percentage=0.8, height_percentage=0.8):
         screen_width = self.root.winfo_screenwidth()
         screen_height = self.root.winfo_screenheight()
         window_width = int(screen_width * width_percentage)
