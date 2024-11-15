@@ -77,7 +77,7 @@ class IdentiTechApp:
             return None
 
         with Image.open(image_path).convert("RGBA") as img:
-            img = img.resize((width, height), Image.Resampling.LANCZOS)
+            img = img.resize((width, height), Image.LANCZOS)
 
             if remove_bg:
                 data = img.getdata()
@@ -119,7 +119,7 @@ class IdentiTechApp:
             self.root.after_cancel(self.resize_after_id)
         self.resize_after_id = self.root.after(100, self.update_background_image)
 # Update the background image based on the window size
-    def update_background_image(self, event=None):
+    def update_background_image(self):
         screen_width = self.root.winfo_width()
         screen_height = self.root.winfo_height()
 
@@ -143,7 +143,7 @@ class IdentiTechApp:
 
         # Create rounded image
         with Image.open("BG2.jpg").convert("RGBA") as img:
-            img = img.resize((background_width, background_height), Image.Resampling.LANCZOS)
+            img = img.resize((background_width, background_height), Image.LANCZOS)
             mask = Image.new('L', (background_width, background_height), 0)
             draw = ImageDraw.Draw(mask)
             draw.rounded_rectangle((0, 0, background_width, background_height), radius=radius, fill=255)
@@ -316,7 +316,7 @@ class IdentiTechApp:
 
         # Resize the eye icon using Pillow
         eye_image = Image.open("Eye.png")  # Load the eye icon
-        resized_eye_image = eye_image.resize((16, 16),  Image.Resampling.LANCZOS)  # Resize to 20x20 pixels
+        resized_eye_image = eye_image.resize((16, 16),  Image.LANCZOS)  # Resize to 20x20 pixels
         self.eye_icon = ImageTk.PhotoImage(resized_eye_image)  # Convert to PhotoImage
 
         # Eye icon button to show/hide the password
